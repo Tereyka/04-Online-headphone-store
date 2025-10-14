@@ -127,3 +127,4 @@ slider.addEventListener('wheel', e => {
   clampTarget();
   if (!rafId) animateToTarget();
 }, { passive: false });
+
