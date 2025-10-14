@@ -9,6 +9,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <script src="script.js" defer></script>
+    <script src="script-carousel-2.js" defer></script>
 </head>
 
 <body>
@@ -19,11 +20,11 @@
             </a>
             <nav>
                 <ul class="navigation-list">
-                    <li class="navigation-item"> <a class="navigation-link" href="#">Home</a>
+                    <li class="navigation-item"> <a class="navigation-link is-current" href="#">Home</a>
                     </li>
                     <li class="navigation-item"> <a class="navigation-link" href="#">Tech Specs</a>
                     </li>
-                    <li class="navigation-item"> <a class="navigation-link is-current" href="#">Compare</a>
+                    <li class="navigation-item"> <a class="navigation-link" href="#">Compare</a>
                     </li>
                 </ul>
             </nav>
@@ -44,23 +45,22 @@
         <section class="hero">
             <img src="assets/images/Headphone.png" alt="">
             <div class="hero-title">
-                <h1>Resonance</h1>
-                <h2>Aura Pro II</h2>
+                <h1 class="hero-heading-1">Resonance</h1>
+                <h2 class="hero-heading-2">Aura Pro II</h2>
             </div>
         </section>
     </div>
 
     <main>
-
         <section class="carousel">
             <div class="carousel-title-container">
-                <h2>Your Style. Your Sound.</h2>
+                <h2 class="carousel-title">Your Style. Your Sound.</h2>
                 <p class="description">Studio-grade acoustics that dissolve distractions and awaken clarity.</p>
             </div>
             <ul class="headphone-carousel">
-                <li class="slide"><img src="assets/images/headphones-yellow.png" alt="Yellow headphone"></li>
-                <li class="slide" data-active><img src="assets/images/headphones-green.png" alt="Green headphone"></li>
-                <li class="slide"><img src="assets/images/headphones-red.png" alt="Red headphone"></li>
+                <li class="slide"><img src="assets/images/headphones-yellow.png"  draggable="false" alt="Yellow headphone"></li>
+                <li class="slide" data-active><img src="assets/images/headphones-green.png" draggable="false" alt="Green headphone"></li>
+                <li class="slide"><img src="assets/images/headphones-red.png" draggable="false" alt="Red headphone"></li>
             </ul>
             <div class="color-options-container">
                 <div class="color-options-container-button">
@@ -72,18 +72,21 @@
             </div>
         </section>
         <section class="features">
-            <article class="features-container-1">
-                <p>Deep lows. Lush mids. Airy highs. All perfectly in balance.</p>
-                <img src="assets/images/Headphone-Model.png" alt="">
-            </article>
-            <article class="features-container-2">
-                <p>Silence distractions. Control everything with a gentle tap.</p>
-                <img src="assets/images/Headphone-features 1.png" alt="">
-            </article>
-            <article class="features-container-3">
-                <p>Thoughtfully packed in plastic-free, high quality materials.</p>
-                <img src="assets/images/Headphone-features 2.png" alt="">
-            </article>
+            <ul class="features-carousel">
+                <li class=" features-slide  act">
+                    <p>Deep lows. Lush mids. Airy highs. All perfectly in balance.</p>
+                    <img src="assets/images/Headphone-Model.png" alt="" draggable="false">
+                </li>
+                <li class="features-slide features-slide-2">
+                    <p>Silence distractions. Control everything with a gentle tap.</p>
+                    <img src="assets/images/Headphone-features 1.png" alt="" draggable="false">
+                </li>
+                <li class=" features-slide features-slide-3">
+                    <p>Thoughtfully packed in plastic-free, high quality materials.</p>
+                    <img src="assets/images/Headphone-features 2.png" alt="" draggable="false">
+                </li>
+            </ul>
+            <div class="swipe"></div>
         </section>
         <section class="personalize">
             <h2>Every Detail Matters</h2>

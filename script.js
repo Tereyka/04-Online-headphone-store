@@ -44,3 +44,86 @@ document.addEventListener('keydown', (e) => {
 
 // Первая инициализация
 updatePositions();
+
+
+
+
+const slider = document.querySelector('.features-carousel');
+
+let isDown = false;
+let startX;
+let scrollLeft;
+
+// --- параметры «плавности» для колёсика ---
+let targetX = 0;            // куда хотим докрутиться
+let rafId = null;           // id активной анимации
+const WHEEL_SPEED = 1.4;    // чувствительность к колесику (больше — быстрее)
+const EASE = 0.14;          // плавность (0.08–0.2 обычно ок)
+
+// вспомогательная: пределы прокрутки
+function clampTarget() {
+  const max = slider.scrollWidth - slider.clientWidth;
+  if (targetX < 0) targetX = 0;
+  if (targetX > max) targetX = max;
+}
+
+// анимация к targetX
+function animateToTarget() {
+  const diff = targetX - slider.scrollLeft;
+  if (Math.abs(diff) > 0.5) {
+    slider.scrollLeft += diff * EASE;
+    rafId = requestAnimationFrame(animateToTarget);
+  } else {
+    slider.scrollLeft = targetX;
+    rafId = null;
+  }
+}
+
+// --- drag мышью ---
+slider.addEventListener('mousedown', e => {
+  // при начале драгга останавливаем текущую анимацию
+  if (rafId) {
+    cancelAnimationFrame(rafId);
+    rafId = null;
+  }
+  isDown = true;
+  slider.classList.add('active');
+  startX = e.pageX - slider.offsetLeft;
+  scrollLeft = slider.scrollLeft;
+  targetX = slider.scrollLeft; // синхронизируем цель с текущей позицией
+});
+
+slider.addEventListener('mouseleave', () => {
+  isDown = false;
+  slider.classList.remove('active');
+});
+
+slider.addEventListener('mouseup', () => {
+  isDown = false;
+  slider.classList.remove('active');
+});
+
+slider.addEventListener('mousemove', e => {
+  if (!isDown) return;
+  e.preventDefault();
+  const x = e.pageX - slider.offsetLeft;
+  const DRAG_SPEED = 1.25;
+  const walk = (x - startX) * DRAG_SPEED;
+  const next = scrollLeft - walk;
+  slider.scrollLeft = next;
+  targetX = next; // чтобы после драгга колесо продолжало с текущей точки
+});
+
+// --- прокрутка колесиком с плавностью ---
+slider.addEventListener('wheel', e => {
+  // позволяем горизонтально крутить даже если тачпад даёт deltaX
+  const delta = Math.abs(e.deltaX) > Math.abs(e.deltaY) ? e.deltaX : e.deltaY;
+
+  // предотвращаем вертикальный скролл страницы/контейнера-родителя
+  e.preventDefault();
+
+  // накапливаем целевую позицию и запускаем анимацию
+  targetX = (rafId ? targetX : slider.scrollLeft) + delta * WHEEL_SPEED;
+  clampTarget();
+  if (!rafId) animateToTarget();
+}, { passive: false });

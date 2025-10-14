@@ -299,6 +299,8 @@ a {
 .navigation-link.is-current {
   border: 1px solid var(--color-black);
   border-radius: var(--border-radius);
+  color: var(--color-white);
+  background: linear-gradient(180deg, var(--color-brown), var(--color-light-grey));
 }
 
 
@@ -338,8 +340,7 @@ a {
   align-items: center;
 }
 
-.hero-title h1 {
-  margin: 0;
+.hero-title .hero-heading-1 {
   position: absolute;
   z-index: 3;
   top: clamp(10px, calc(-56.52px + 18.48vw), 180px);
@@ -348,8 +349,7 @@ a {
   line-height: 172px;
 }
 
-.hero-title h2 {
-  margin: 0;
+.hero-title .hero-heading-2 {
   position: absolute;
   z-index: 1;
   top: 352px;
@@ -380,8 +380,7 @@ a {
 }
 
 
-.carousel-title-container h2 {
-  margin: 0;
+.carousel-title {
   font-size: 56px;
   font-weight: 600;
   margin-bottom: 16px;
@@ -452,7 +451,7 @@ a {
   transition: width 0.4s ease, filter 0.4s ease, transform 0.4s ease;
 }
 
- /* центральная больше */
+/* центральная больше */
 .slide[data-pos="center"] img {
   width: 660px;
   filter: none;
@@ -499,3 +498,72 @@ a {
   transform: scale(1.05);
   transition: transform .2s ease, outline .2s ease;
 }
+
+ .features {
+  max-width: 1280px;
+  width: 100%;
+  padding: 80px;
+  margin-inline: auto;
+}
+
+.features-carousel{
+  position: relative;
+	display: grid;
+	grid-template-columns: repeat(3, 51vw);
+  grid-column-gap: 1rem;
+	grid-template-rows: 1fr;
+	grid-row-gap: 1rem;
+  scroll-snap-type: both mandatory;
+	scroll-padding: 1rem;
+	overflow: hidden;
+}
+
+
+
+.features-slide {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  overflow: hidden;
+  max-width: 1080px;
+  width: 100%;
+  height: 480px;
+  background: linear-gradient(180.00deg, rgba(210, 205, 198, 1), rgba(248, 191, 147, 1) 100%);
+  border-radius: var(--border-radius);
+   cursor: pointer;
+}
+
+.features-slide-2 {
+background: linear-gradient(180.00deg, rgba(210, 205, 198, 1),rgba(242, 235, 227, 1));
+}
+
+.features-slide-3 {
+background: linear-gradient(180.00deg, rgba(216, 183, 75, 1),rgba(242, 235, 227, 1) 100%);
+}
+
+.features-slide p{
+   user-select: none;
+  font-size:32px;
+  font-weight: 500;
+  line-height: 42px;
+  margin-left:80px;
+  
+}
+
+.features-slide img {
+   user-select: none;
+width:532px;
+height: auto;  
+} 
+
+.active {
+	scroll-snap-type: unset;
+}
+
+
+
+
+
+
+
+
