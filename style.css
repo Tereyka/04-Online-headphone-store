@@ -447,7 +447,7 @@ a {
 .headphone-carousel {
   position: relative;
   inline-size: min(90vw, 1280px);
-  height: min(65.625vw,660px);
+  height: min(75vw,660px);
   overflow: hidden;
 }
 
@@ -459,8 +459,7 @@ a {
 
 /* центральная больше */
 .slide[data-pos="center"] img {
-  max-width: min(65.625vw,660px);
-  width:100%;
+  width: min(65.625vw,660px);
   filter: none;
   z-index: 3;
 }

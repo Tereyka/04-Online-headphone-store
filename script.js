@@ -45,6 +45,11 @@ document.addEventListener('keydown', (e) => {
 // Первая инициализация
 updatePositions();
 
+
+
+
+
+
 const slider = document.querySelector('.features-carousel');
 
 let isDown = false;
