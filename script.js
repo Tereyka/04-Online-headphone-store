@@ -49,9 +49,19 @@ updatePositions();
 
 
 
+function myFunction() {
+  document.querySelector('.navigation-list').classList.toggle("show");
+}
 
+window.addEventListener('click', function(event) {
+  const menu = document.querySelector('.navigation-list');
+  const burger = document.querySelector('.burger-button');
 
-
+  // если клик был НЕ по меню и НЕ по бургеру
+  if (!menu.contains(event.target) && !burger.contains(event.target)) {
+    menu.classList.remove('show');
+  }
+})
 
 
 
