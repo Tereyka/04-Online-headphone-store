@@ -542,10 +542,7 @@ a {
   overflow-y: hidden;
   -webkit-overflow-scrolling: touch; /* инерция на iOS */
   scroll-behavior: auto;         /* управляем сами плавностью */
-  touch-action: pan-y;           /* разрешаем вертикальный скролл страницы,
-                                    а горизонтальный перехватываем JS */
-
-
+  touch-action: pan-y;           /* разрешаем вертикальный скролл страницы, а горизонтальный перехватываем JS */
 }
 
 .features-slide {
