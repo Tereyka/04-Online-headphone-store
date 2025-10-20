@@ -538,6 +538,14 @@ a {
   scroll-snap-type: both mandatory;
   scroll-padding: 1rem;
   overflow: hidden;
+  overflow-x: auto;              /* горизонтальная прокрутка */
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch; /* инерция на iOS */
+  scroll-behavior: auto;         /* управляем сами плавностью */
+  touch-action: pan-y;           /* разрешаем вертикальный скролл страницы,
+                                    а горизонтальный перехватываем JS */
+
+
 }
 
 .features-slide {
