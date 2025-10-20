@@ -403,12 +403,6 @@ a {
   color: var(--color-light-grey);
 }
 
-/* @media all and (max-width:1280px){
-  .color-options-container p{
-    font-size: min(24px)
-  }
-} */
-
 .headphone-carousel {
   display: flex;
   margin-bottom: 24px;
@@ -538,11 +532,6 @@ a {
   scroll-snap-type: both mandatory;
   scroll-padding: 1rem;
   overflow: hidden;
-  overflow-x: auto;              /* горизонтальная прокрутка */
-  overflow-y: hidden;
-  -webkit-overflow-scrolling: touch; /* инерция на iOS */
-  scroll-behavior: auto;         /* управляем сами плавностью */
-  touch-action: pan-y;           /* разрешаем вертикальный скролл страницы, а горизонтальный перехватываем JS */
 }
 
 .features-slide {
